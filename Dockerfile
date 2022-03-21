@@ -7,6 +7,8 @@ ARG VERSION
 
 COPY ./bin /usr/local/bin
 
+RUN apt-get update
+
 RUN chmod a+x /usr/local/bin/* && \
     apk add --no-cache git build-base openssl && \
     apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.11/main leveldb-dev && \
