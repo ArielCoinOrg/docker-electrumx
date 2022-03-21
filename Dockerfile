@@ -7,7 +7,18 @@ ARG VERSION
 
 COPY ./bin /usr/local/bin
 
-RUN apt-get update
+RUN apk update && apk upgrade
+
+RUN apk add --no-cache bash\
+                       python \
+                       pkgconfig \
+                       gcc \
+                       openldap \
+                       libcurl \
+                       python3-dev \
+                       gpgme-dev \
+                       libc-dev \
+    && rm -rf /var/cache/apk/*
 
 RUN chmod a+x /usr/local/bin/* && \
     apk add --no-cache git build-base openssl && \
