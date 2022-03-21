@@ -9,7 +9,8 @@ COPY ./bin /usr/local/bin
 
 RUN apk update && apk upgrade && apk add python3-dev \
                         gcc \
-                        libc-dev
+                        libc-dev \
+                        libffi-dev
 
 
 RUN chmod a+x /usr/local/bin/* && \
