@@ -17,8 +17,7 @@ RUN apk add --no-cache bash\
                        libcurl \
                        python3-dev \
                        gpgme-dev \
-                       libc-dev \
-    && rm -rf /var/cache/apk/*
+                       libc-dev 
 
 RUN chmod a+x /usr/local/bin/* && \
     apk add --no-cache git build-base openssl && \
