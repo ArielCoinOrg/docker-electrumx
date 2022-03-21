@@ -9,18 +9,9 @@ COPY ./bin /usr/local/bin
 
 RUN apk update && apk upgrade
 
-RUN apk add --no-cache bash\
-                       python \
-                       pkgconfig \
-                       gcc \
-                       openldap \
-                       libcurl \
-                       python3-dev \
-                       gpgme-dev \
-                       libc-dev 
 
 RUN chmod a+x /usr/local/bin/* && \
-    apk add --no-cache git build-base openssl && \
+    apk add --no-cache git build-base openssl gcc && \
     apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.11/main leveldb-dev && \
     apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing rocksdb-dev && \
     pip install aiohttp pylru plyvel websockets python-rocksdb uvloop kawpow && \
